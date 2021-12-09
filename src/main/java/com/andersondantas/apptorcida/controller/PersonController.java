@@ -2,6 +2,7 @@ package com.andersondantas.apptorcida.controller;
 
 import com.andersondantas.apptorcida.dto.request.PersonDTO;
 import com.andersondantas.apptorcida.dto.response.MessageResponseDTO;
+import com.andersondantas.apptorcida.exception.PersonNotFoundException;
 import com.andersondantas.apptorcida.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,10 +33,10 @@ public class PersonController {
         return personService.listAll();
     }
 
-    /*@GetMapping("/{id}")
+    @GetMapping("/{id}")
     public PersonDTO findById(@PathVariable Long id) throws PersonNotFoundException {
         return personService.findById(id);
-    }*/
+    }
 
     /*@PutMapping("/{id}")
     public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid PersonDTO personDTO) throws PersonNotFoundException {
