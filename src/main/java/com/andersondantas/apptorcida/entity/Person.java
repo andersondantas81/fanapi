@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class Person {
     @Column(nullable = false)
     private String nationality;
 
-    private String birthDate;
+    private LocalDate birthDate;
 
     private String genre;
 
@@ -37,9 +38,10 @@ public class Person {
     @Column(nullable = false, unique = true)
     private String cpf;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String rg;
 
+    @Column(nullable = false)
     private String email;
 
     @Column(nullable = false)
