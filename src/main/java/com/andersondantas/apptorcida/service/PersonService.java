@@ -6,6 +6,7 @@ import com.andersondantas.apptorcida.entity.Person;
 import com.andersondantas.apptorcida.exception.PersonNotFoundException;
 import com.andersondantas.apptorcida.mapper.PersonMapper;
 import com.andersondantas.apptorcida.repository.PersonRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,16 +15,17 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonService {
 
     private final PersonRepository personRepository;
 
     private final PersonMapper personMapper = PersonMapper.INSTANCE;
 
-    @Autowired
+    /*@Autowired
     public PersonService(PersonRepository personRepository) {
         this.personRepository = personRepository;
-    }
+    }*/
 
     public MessageResponseDTO createPerson(PersonDTO personDTO) {
         Person personToSave = personMapper.toModel(personDTO);
